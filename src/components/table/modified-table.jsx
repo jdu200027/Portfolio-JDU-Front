@@ -40,7 +40,7 @@ const EnhancedTable = ({ tableProps, updatedBookmark }) => {
         );
         
         // Transform the API response to match the expected format
-        const transformedData = response.data.records.map(record => ({
+        const transformedData = response.data.map(record => ({
           id: record.$id.value,
           first_name: record.studentName.value,
           last_name: "",
