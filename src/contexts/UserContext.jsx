@@ -13,12 +13,13 @@ export const UserProvider = ({children}) => {
   const [activeUser, setActiveUser] = useState(null);
 
   const fetchAndSetUser = () => {
+    const token = Cookies.get("token");
     const userRole = Cookies.get("role");
     const loginUser = Cookies.get("loginUser");
     const user = loginUser ? JSON.parse(loginUser) : null;
     setAuth({
-      token: Cookies.get("token"),
-      isAuthenticated: !!Cookies.get("token")
+      token: token,
+      isAuthenticated: !!token
     });
     setRole(userRole);
     setActiveUser(user);

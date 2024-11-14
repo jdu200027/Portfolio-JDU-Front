@@ -54,7 +54,7 @@ const CreditDetails = () => {
 
   useEffect(() => {
     const fetchCreditDetails = async (studentId) => {
-      let response = await axios.post(`/api/kintone/getby`, {
+      let response = await axios.post(`/kintone/getby`, {
         table: "credit_details",
         col: "studentId",
         val: studentId,

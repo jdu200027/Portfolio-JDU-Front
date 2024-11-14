@@ -19,11 +19,10 @@ import {
 } from "@mui/material";
 
 import { stableSort, getComparator } from "./TableUtils";
-import {useUser} from "../../contexts/UserContext.jsx"; // Import sorting utilities
+import { useUser } from "../../contexts/UserContext.jsx"; // Import sorting utilities
 
 const EnhancedTable = ({ tableProps, updatedBookmark }) => {
-  const {isAuthenticated, role, userId} = useUser();
-
+  const { isAuthenticated, role, userId } = useUser();
 
   const [order, setOrder] = useState("asc");
   const [orderBy, setOrderBy] = useState("");
@@ -37,7 +36,7 @@ const EnhancedTable = ({ tableProps, updatedBookmark }) => {
     const fetchUserData = async () => {
       setLoading(true); // Start loading indicator
       try {
-        const response = await axios.get(tableProps.dataLink, {
+          const response = await axios.get(tableProps.dataLink, {
           params: {
             filter: tableProps.filter,
             recruiterId: tableProps.recruiterId,
@@ -67,6 +66,7 @@ const EnhancedTable = ({ tableProps, updatedBookmark }) => {
       );
     }
   }, [updatedBookmark]);
+
   const handleRequestSort = (property) => {
     const isAsc = orderBy === property && order === "asc";
     setOrder(isAsc ? "desc" : "asc");
@@ -109,7 +109,7 @@ const EnhancedTable = ({ tableProps, updatedBookmark }) => {
             <TableRow>
               {tableProps.headers.map(
                 (header) =>
-                  (header.role == undefined || header.role == role) && (
+                  (header.role === undefined || header.role === role) && (
                     <TableCell
                       sx={{ borderBottom: "1px solid #aaa" }}
                       key={"header" + header.id}

@@ -5,6 +5,8 @@ import { Box } from "@mui/material";
 import Table from "../../components/table/Table";
 import Filter from "../../components/filter/Filter";
 
+const VITE_API_URL = import.meta.env.VITE_API_URL;
+
 const Staff = () => {
   const headers = [
     {
@@ -28,6 +30,7 @@ const Staff = () => {
       numeric: false,
       disablePadding: false,
       label: "部署",
+      type: "",
       minWidth: "160px",
     },
     {
@@ -35,6 +38,7 @@ const Staff = () => {
       numeric: false,
       disablePadding: false,
       label: "役職",
+      type: "",
       minWidth: "160px",
     },
     {
@@ -42,6 +46,7 @@ const Staff = () => {
       numeric: true,
       disablePadding: false,
       label: "電話番号",
+      type: "",
       minWidth: "200px",
     }
   ];
@@ -54,10 +59,9 @@ const Staff = () => {
 
   const tableProps = {
     headers: headers,
-    dataLink: "/api/staff",
+    dataLink: `${VITE_API_URL}/api/staff`,
     filter: filterState,
   };
-
   const handleFilterChange = (value) => {
     setFilterState(value);
   };
