@@ -36,7 +36,7 @@ const EnhancedTable = ({ tableProps, updatedBookmark }) => {
       setLoading(true);
       try {
         const response = await axios.get(
-          "https://9hrfxuh377.execute-api.ap-northeast-1.amazonaws.com/default/api/kintone"
+          `${import.meta.env.VITE_API_URL}/api/kintone`
         );
         
         // Transform the API response to match the expected format

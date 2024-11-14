@@ -133,7 +133,7 @@ const Student = ({ OnlyBookmarked = false }) => {
   // Updated tableProps to use the new API endpoint
   const tableProps = {
     headers: headers,
-    dataLink: "https://9hrfxuh377.execute-api.ap-northeast-1.amazonaws.com/default/api/kintone",
+    dataLink: `${import.meta.env.VITE_API_URL}/api/students`,
     filter: filterState,
     recruiterId: userId,
     OnlyBookmarked: OnlyBookmarked,

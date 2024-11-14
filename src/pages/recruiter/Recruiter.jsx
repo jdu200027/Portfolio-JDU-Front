@@ -56,7 +56,7 @@ const Recruiter = () => {
 
   const tableProps = {
     headers: headers,
-    dataLink: "/api/recruiters",
+    dataLink: `${import.meta.env.VITE_API_URL}/api/recruiters`,
     filter: filterState,
   };
 
